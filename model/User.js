@@ -1,17 +1,8 @@
 import mongoose from "mongoose";
-
 let validateEmail=function(email){
   let emailRegex = new RegExp("([!#-'+/-9=?A-Z^-~-]+(\.[!#-'+/-9=?A-Z^-~-]+)|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'+/-9=?A-Z^-~-]+(\.[!#-'+/-9=?A-Z^-~-]+)|\[[\t -Z^-~]*])");
   return emailRegex.test(email);
 };
-
-
-// let validatePassword=function(password){
-//   let passwordRegex=/^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/
-//   return passwordRegex.test(password);
-// }
-
-
 const userSchema = mongoose.Schema({
   name: { type: String, required:  true },
   email: 
@@ -34,6 +25,5 @@ const userSchema = mongoose.Schema({
    },
   id: { type: String },
 });
-
 const user=mongoose.model("User", userSchema);
 export default user;
